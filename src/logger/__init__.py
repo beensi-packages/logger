@@ -8,7 +8,7 @@ class Logging:
         self.reference = reference
         self.apikey = apikey
 
-    def debug(self, message, request_url):
+    def debug(self, message, request_url=None):
         requests.post(
             url=self.logger_server,
             data=json.dumps(
@@ -16,7 +16,7 @@ class Logging:
             headers={'apikey': self.apikey}
         )
 
-    def info(self, message, request_url):
+    def info(self, message, request_url=None):
         requests.post(
             url=self.logger_server,
             data=json.dumps(
@@ -24,7 +24,7 @@ class Logging:
             headers={'apikey': self.apikey}
         )
 
-    def error(self, message, request_url):
+    def error(self, message, request_url=None):
         requests.post(
             url=self.logger_server,
             data=json.dumps(
